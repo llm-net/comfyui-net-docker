@@ -1,0 +1,94 @@
+version: '3.8'
+
+services:
+  # Base ComfyUI service
+  comfyui-base:
+    image: ${DOCKER_USERNAME:-llmnet}/comfyui-net:${COMFYUI_VERSION:-latest}
+    container_name: comfyui-base
+    ports:
+      - "8188:8188"
+    volumes:
+      # Model directories
+      - ./models:/app/models
+      - ./output:/app/output
+      - ./input:/app/input
+      - ./temp:/app/temp
+      # Custom model paths configuration
+      - ./configs/extra_model_paths.yaml:/app/extra_model_paths.yaml:ro
+      # Persistent custom nodes (optional)
+      # - ./custom_nodes:/app/custom_nodes
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CUDA_VISIBLE_DEVICES=0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - comfyui-network
+
+  # Extended ComfyUI service with plugins
+  comfyui-extend:
+    image: ${DOCKER_USERNAME:-llmnet}/comfyui-net:${COMFYUI_VERSION:-latest}-extend
+    container_name: comfyui-extend
+    ports:
+      - "8189:8188"
+    volumes:
+      # Model directories (shared with base)
+      - ./models:/app/models
+      - ./output:/app/output
+      - ./input:/app/input
+      - ./temp:/app/temp
+      # Custom model paths configuration
+      - ./configs/extra_model_paths.yaml:/app/extra_model_paths.yaml:ro
+      # Persistent custom nodes
+      - ./custom_nodes:/app/custom_nodes
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CUDA_VISIBLE_DEVICES=0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - comfyui-network
+
+  # Optional: Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: comfyui-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - comfyui-base
+      - comfyui-extend
+    restart: unless-stopped
+    networks:
+      - comfyui-network
+    profiles:
+      - proxy
+
+networks:
+  comfyui-network:
+    driver: bridge
+
+# Volume definitions for persistent data
+volumes:
+  models:
+    driver: local
+  output:
+    driver: local
+  input:
+    driver: local
+  custom_nodes:
+    driver: local

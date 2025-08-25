@@ -1,0 +1,63 @@
+# ComfyUI Extended Version - Installed Plugins List
+# This file documents all pre-installed plugins in the extended Docker image
+
+## Essential Management
+- ComfyUI-Manager: Plugin manager and model downloader
+  https://github.com/ltdrdata/ComfyUI-Manager
+
+## Core Node Packs
+- ComfyUI-Impact-Pack: Advanced conditioning and detailing nodes
+  https://github.com/ltdrdata/ComfyUI-Impact-Pack
+
+- ComfyUI-Inspire-Pack: Creative and experimental nodes
+  https://github.com/ltdrdata/ComfyUI-Inspire-Pack
+
+- WAS Node Suite: Comprehensive collection of utility nodes
+  https://github.com/WASasquatch/was-node-suite-comfyui
+
+## Image Processing
+- ComfyUI_IPAdapter_plus: IP-Adapter for style transfer
+  https://github.com/cubiq/ComfyUI_IPAdapter_plus
+
+- ComfyUI_essentials: Essential image processing utilities
+  https://github.com/cubiq/ComfyUI_essentials
+
+## Control and Conditioning
+- ComfyUI-Advanced-ControlNet: Advanced ControlNet implementation
+  https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet
+
+## Animation and Video
+- ComfyUI-AnimateDiff-Evolved: AnimateDiff for video generation
+  https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved
+
+- ComfyUI-VideoHelperSuite: Video processing and encoding
+  https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
+
+## UI Enhancements
+- ComfyUI-Custom-Scripts: UI improvements and workflow tools
+  https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+
+- rgthree-comfy: Quality of life UI improvements
+  https://github.com/rgthree/rgthree-comfy
+
+## Workflow Tools
+- ComfyUI_Comfyroll_CustomNodes: Workflow enhancement nodes
+  https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes
+
+- efficiency-nodes-comfyui: Performance optimization nodes
+  https://github.com/jags111/efficiency-nodes-comfyui
+
+- ComfyUI-KJNodes: Additional utility and helper nodes
+  https://github.com/kijai/ComfyUI-KJNodes
+
+## Additional Python Packages
+- opencv-python: Computer vision library
+- scikit-image: Image processing
+- matplotlib: Plotting and visualization
+- pandas: Data manipulation
+- scipy: Scientific computing
+- transformers: Hugging Face transformers
+- accelerate: Training acceleration
+- onnxruntime: ONNX model inference
+- insightface: Face analysis
+- segment-anything: SAM segmentation models

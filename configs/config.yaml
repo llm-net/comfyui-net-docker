@@ -1,0 +1,89 @@
+# ComfyUI Configuration
+# This is a sample configuration file for ComfyUI settings
+# Place this file in the ComfyUI root directory as needed
+
+# Server configuration
+server:
+  listen: "0.0.0.0"
+  port: 8188
+  enable_cors_header: false
+  max_upload_size: 100  # MB
+
+# Model management
+models:
+  # Automatically download missing models
+  auto_download: false
+  # Model directories (relative to ComfyUI root)
+  checkpoints_dir: "models/checkpoints"
+  vae_dir: "models/vae"
+  loras_dir: "models/loras"
+  controlnet_dir: "models/controlnet"
+  clip_dir: "models/clip"
+  upscale_models_dir: "models/upscale_models"
+  embeddings_dir: "models/embeddings"
+
+# Performance settings
+performance:
+  # VRAM management
+  gpu_only: false  # Keep models in GPU memory only
+  highvram: false  # Keep all models in VRAM
+  normalvram: true  # Default VRAM management
+  lowvram: false  # Aggressive VRAM management
+  novram: false  # Use CPU RAM only
+  
+  # CPU settings
+  cpu: false  # Force CPU mode
+  
+  # Precision settings
+  force_fp32: false
+  force_fp16: false
+  bf16_unet: false
+  
+  # Preview settings
+  preview_method: "auto"  # auto, latent2rgb, taesd
+  
+  # Cache settings
+  use_pytorch_cross_attention: true
+
+# UI settings
+ui:
+  # Output directory
+  output_directory: "./output"
+  temp_directory: "./temp"
+  input_directory: "./input"
+  
+  # Auto-queue settings
+  auto_launch_browser: false
+  
+  # UI customization
+  default_workflow: null
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: null  # Log file path
+
+# Security
+security:
+  enable_api_key: false
+  api_key: null
+  
+# Custom nodes
+custom_nodes:
+  disabled_nodes: []
+  trusted_repositories: [
+    "https://github.com/ltdrdata/ComfyUI-Manager",
+    "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
+    "https://github.com/ltdrdata/ComfyUI-Inspire-Pack",
+    "https://github.com/cubiq/ComfyUI_IPAdapter_plus",
+    "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet",
+    "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved",
+    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite",
+    "https://github.com/cubiq/ComfyUI_essentials",
+    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts",
+    "https://github.com/WASasquatch/was-node-suite-comfyui",
+    "https://github.com/kijai/ComfyUI-KJNodes",
+    "https://github.com/rgthree/rgthree-comfy",
+    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes",
+    "https://github.com/jags111/efficiency-nodes-comfyui"
+  ]

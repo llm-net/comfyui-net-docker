@@ -1,0 +1,48 @@
+# ComfyUI Extra Model Paths Configuration
+# This file allows you to configure additional model paths for ComfyUI
+# Useful for mounting external model directories or sharing models between containers
+
+# Example configuration for Stable Diffusion WebUI models
+# Uncomment and modify paths as needed
+
+# stable-diffusion-webui:
+#   base_path: /data/stable-diffusion-webui/
+#   checkpoints: models/Stable-diffusion
+#   configs: models/Stable-diffusion
+#   vae: models/VAE
+#   loras: |
+#     models/Lora
+#     models/LyCORIS
+#   upscale_models: |
+#     models/ESRGAN
+#     models/RealESRGAN
+#     models/SwinIR
+#   embeddings: embeddings
+#   hypernetworks: models/hypernetworks
+#   controlnet: models/ControlNet
+
+# Example configuration for shared models directory
+# shared:
+#   base_path: /models/
+#   checkpoints: checkpoints
+#   vae: vae
+#   loras: loras
+#   upscale_models: upscale_models
+#   embeddings: embeddings
+#   controlnet: controlnet
+#   clip: clip
+#   clip_vision: clip_vision
+#   diffusers: diffusers
+#   gligen: gligen
+#   hypernetworks: hypernetworks
+#   photomaker: photomaker
+#   style_models: style_models
+#   unet: unet
+#   ipadapter: ipadapter
+
+# Example configuration for Hugging Face models cache
+# huggingface:
+#   base_path: /root/.cache/huggingface/hub/
+#   checkpoints: models--stabilityai/
+#   clip: models--openai/
+#   vae: models--stabilityai/
